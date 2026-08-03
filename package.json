@@ -14,9 +14,9 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "db:generate": "prisma generate",
-    "db:push": "prisma db push",
+    "db:push": "tsx prisma/push.ts",
     "db:seed": "tsx prisma/seed.ts",
-    "db:setup": "prisma db push && tsx prisma/seed.ts",
+    "db:setup": "npm run db:push && npm run db:seed",
     "postinstall": "prisma generate",
     "ci": "npm run lint && npm run typecheck && npm run test:ci && npm run build"
   },
