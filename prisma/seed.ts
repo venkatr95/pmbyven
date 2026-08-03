@@ -1,11 +1,23 @@
 import "dotenv/config";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { PrismaLibSql } from "@prisma/adapter-libsql";
 import path from "path";
 
-const dbPath = path.join(process.cwd(), "prisma", "dev.db");
-const adapter = new PrismaBetterSqlite3({ url: `file:${dbPath}` });
-const db = new PrismaClient({ adapter });
+let db: PrismaClient;
+const tursoUrl = process.env.TURSO_DATABASE_URL;
+
+if (tursoUrl) {
+  const adapter = new PrismaLibSql({
+    url: tursoUrl,
+    authToken: process.env.TURSO_AUTH_TOKEN,
+  });
+  db = new PrismaClient({ adapter });
+} else {
+  const dbPath = path.join(process.cwd(), "prisma", "dev.db");
+  const adapter = new PrismaBetterSqlite3({ url: `file:${dbPath}` });
+  db = new PrismaClient({ adapter });
+}
 
 const articleBody = `Hey there. Each week I share deeply researched product, design, and craft advice — the kind of writing that helps you ship better work.
 
@@ -239,7 +251,15 @@ const articles = [
 ];
 
 async function main() {
-  console.log("Seeding pmbyven database…");
+  console.log("Checking if database is already seeded…");
+  
+  const existingAuthor = await db.author.findFirst();
+  if (existingAuthor) {
+    console.log("Database already has data. Skipping seed to prevent accidental wipes.");
+    return;
+  }
+  
+  console.log("Database is empty. Seeding pmbyven database…");
 
   await db.analyticsEvent.deleteMany();
   await db.revision.deleteMany();

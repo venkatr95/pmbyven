@@ -17,7 +17,7 @@ async function main() {
   
   try {
     // Generate the raw SQL required to create the schema
-    execSync("npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > migration.sql", { stdio: "inherit" });
+    execSync("npx prisma migrate diff --from-empty --to-schema prisma/schema.prisma --script > migration.sql", { stdio: "inherit" });
     const sql = fs.readFileSync("migration.sql", "utf8");
 
     console.log("Connecting to Turso to apply schema...");

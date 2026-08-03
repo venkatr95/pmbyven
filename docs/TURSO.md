@@ -61,7 +61,8 @@ If you'd rather review/version the SQL instead of relying on `db push`:
 
 ```bash
 npx prisma migrate diff \
-  --from-empty --to-schema-datamodel prisma/schema.prisma \
+  --from-empty \
+  --to-schema prisma/schema.prisma \
   --script > migration.sql
 
 turso db shell pmbyven < migration.sql
