@@ -1,0 +1,251 @@
+// Prisma schema for Editorial publication platform
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Author {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  email     String?
+  bio       String?
+  avatar    String?
+  twitter   String?
+  website   String?
+  role      String   @default("writer")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  icon        String?
+  color       String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  posts       Post[]
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  count     Int      @default(0)
+  createdAt DateTime @default(now())
+  posts     PostTag[]
+}
+
+model Series {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String?
+  coverImage  String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  posts       Post[]
+}
+
+model Post {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  excerpt         String?
+  content         String
+  coverImage      String?
+  status          String    @default("draft") // draft | published | scheduled | archived | trash
+  featured        Boolean   @default(false)
+  editorsPick     Boolean   @default(false)
+  pinned          Boolean   @default(false)
+  views           Int       @default(0)
+  likes           Int       @default(0)
+  commentsCount   Int       @default(0)
+  shares          Int       @default(0)
+  readingTime     Int       @default(5)
+  wordCount       Int       @default(0)
+  publishedAt     DateTime?
+  scheduledAt     DateTime?
+  seoTitle        String?
+  seoDescription  String?
+  ogImage         String?
+  canonicalUrl    String?
+  dropCap         Boolean   @default(false)
+  seriesOrder     Int?
+  aiSummary       String?   // cached AI or extractive summary
+  aiSummaryAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  authorId   String?
+  author     Author?   @relation(fields: [authorId], references: [id])
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+  seriesId   String?
+  series     Series?   @relation(fields: [seriesId], references: [id])
+  tags       PostTag[]
+  revisions  Revision[]
+  notes      PinnedNote[]
+}
+
+model PostTag {
+  postId String
+  tagId  String
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
+
+model Revision {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  alt       String?
+  caption   String?
+  mimeType  String?
+  size      Int?
+  width     Int?
+  height    Int?
+  folder    String   @default("general")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  status    String   @default("active") // active | unsubscribed
+  source    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Menu {
+  id        String     @id @default(cuid())
+  name      String
+  location  String     @unique // header | footer | mobile
+  items     MenuItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model MenuItem {
+  id       String  @id @default(cuid())
+  menuId   String
+  menu     Menu    @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  label    String
+  href     String
+  order    Int     @default(0)
+  parentId String?
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
+model ThemeConfig {
+  id              String @id @default(cuid())
+  name            String @default("default")
+  activeTheme     String @default("warm")
+  accent          String @default("#3b82f6")
+  fontHeading     String @default("Instrument Serif")
+  fontBody        String @default("Inter")
+  radius          String @default("1rem")
+  glassIntensity  String @default("medium")
+  animationSpeed  String @default("normal")
+  containerWidth  String @default("1200px")
+  homepageSections String @default("[]")
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  status      String   @default("published")
+  seoTitle    String?
+  seoDescription String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  type      String   // pageview | like | share | subscribe
+  path      String?
+  postId    String?
+  meta      String?
+  createdAt DateTime @default(now())
+}
+
+model Collection {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String?
+  coverImage  String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  postIds     String   @default("[]") // JSON array of post ids
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  message   String
+  href      String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ReadingList {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String?
+  postIds     String   @default("[]")
+  public      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PinnedNote {
+  id        String   @id @default(cuid())
+  postId    String?
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  title     String
+  body      String
+  color     String   @default("amber") // amber | blue | green | purple | rose
+  pinned    Boolean  @default(true)
+  global    Boolean  @default(false) // show site-wide when true
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

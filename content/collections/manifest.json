@@ -1,0 +1,15 @@
+{
+  "description": "File-based content collections companion. Primary CMS is Prisma; this folder holds static MDX seeds and docs for Content Collections workflow.",
+  "collections": [
+    {
+      "name": "posts",
+      "path": "content/posts",
+      "schema": ["title", "slug", "excerpt", "date", "tags"]
+    },
+    {
+      "name": "pages",
+      "path": "content/pages",
+      "schema": ["title", "slug"]
+    }
+  ]
+}

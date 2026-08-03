@@ -1,0 +1,1053 @@
+Prompt
+
+You are a senior team of:
+
+Staff Frontend Engineer
+Staff Full Stack Engineer
+UX Designer from Apple
+Framer Motion Expert
+Next.js Architect
+Design System Engineer
+Typography Expert
+CMS Engineer
+
+Build a world-class publication platform.
+
+Inspiration URL: https://www.lennysnewsletter.com/p/productpass-summer2026launch
+
+The inspiration is premium editorial platforms like modern newsletters and publications, use existing website's layouts, assets, typography, illustrations, branding, or unique visual identity. 
+
+Tech Stack
+
+Latest versions only.
+
+Next.js 15+
+TypeScript
+React 19
+TailwindCSS 4
+shadcn/ui
+Framer Motion
+GSAP where appropriate
+Lucide Icons
+Zustand
+TanStack Query
+React Hook Form
+Zod
+Prisma
+PostgreSQL
+NextAuth not required
+No public login
+Server Actions
+MDX Support
+Content Collections
+Theme
+
+Premium
+
+Minimal
+
+Editorial
+
+Apple-inspired
+
+Glassmorphism
+
+Depth
+
+Elegant
+
+Modern
+
+Readable
+
+Luxury
+
+Overall Feeling
+
+Imagine if Apple designed Medium.
+
+Large typography.
+
+Amazing spacing.
+
+Floating glass cards.
+
+Smooth motion.
+
+Editorial hierarchy.
+
+Beautiful gradients.
+
+Soft shadows.
+
+Depth.
+
+Premium interactions.
+
+No clutter.
+
+Color System
+
+Create multiple themes.
+
+Default:
+
+Warm White
+
+Graphite
+
+Soft Gray
+
+Blue Accent
+
+Secondary themes:
+
+Midnight
+
+Forest
+
+Nordic
+
+Sand
+
+Aurora
+
+Sunset
+
+Ocean
+
+Each theme changes:
+
+Backgrounds
+
+Cards
+
+Buttons
+
+Gradients
+
+Code blocks
+
+Links
+
+Selection color
+
+Glass Design
+
+Apple Vision Pro inspired.
+
+Use:
+
+Backdrop blur
+
+Glass cards
+
+Subtle transparency
+
+Hairline borders
+
+Depth
+
+Floating navigation
+
+Floating TOC
+
+Floating action buttons
+
+Glass dialogs
+
+Glass dropdowns
+
+Glass search
+
+Glass command menu
+
+Typography
+
+Create an editorial typography system.
+
+Large hero titles
+
+Beautiful body copy
+
+Comfortable reading width
+
+Excellent line height
+
+Drop caps option
+
+Blockquotes
+
+Pull quotes
+
+Footnotes
+
+Inline highlights
+
+Reading optimized spacing
+
+Support:
+
+Headings H1-H6
+
+Lists
+
+Tables
+
+Math
+
+Mermaid
+
+Images
+
+Video embeds
+
+Tweets
+
+GitHub Gists
+
+YouTube
+
+Code blocks
+
+Animations
+
+Everything should feel premium.
+
+Framer Motion.
+
+Page transitions.
+
+Shared layout animations.
+
+Scroll reveal.
+
+Fade
+
+Blur
+
+Scale
+
+Parallax
+
+Mouse reactive gradients
+
+Button micro interactions
+
+Hover elevation
+
+Smooth loading
+
+Skeletons
+
+Motion reduced accessibility
+
+Navigation
+
+Floating glass navbar.
+
+Logo
+
+Search
+
+Categories
+
+Topics
+
+Archive
+
+About
+
+Theme switcher
+
+Admin shortcut
+
+Sticky on scroll.
+
+Shrink on scroll.
+
+Blur background.
+
+Hero Section
+
+Large featured article.
+
+Beautiful typography.
+
+Reading time.
+
+Date.
+
+Author.
+
+Featured image.
+
+Animated background.
+
+Gradient blobs.
+
+Glass CTA.
+
+Homepage
+
+Sections:
+
+Featured Article
+
+Editor's Picks
+
+Latest Articles
+
+Trending
+
+Most Read
+
+Categories
+
+Topics
+
+Featured Collections
+
+Latest Series
+
+Newsletter CTA
+
+Popular Tags
+
+Recently Updated
+
+Archive Timeline
+
+Reading Lists
+
+Blog Page
+
+Premium reading experience.
+
+Features:
+
+Sticky progress bar
+
+Estimated reading time
+
+Reading speed
+
+Word count
+
+Share buttons
+
+Copy link
+
+Bookmark
+
+Print
+
+Fullscreen reading
+
+Distraction free mode
+
+Font size controls
+
+Reading width controls
+
+Theme controls
+
+Dark mode
+
+Scroll percentage
+
+Continue reading
+
+Previous article
+
+Next article
+
+Related articles
+
+Author card
+
+Comments placeholder
+
+Newsletter section
+
+Sticky Left Sidebar
+
+Inspired by premium editorial experiences.
+
+Contains:
+
+Table of contents
+
+Reading progress
+
+Current heading
+
+Jump navigation
+
+Collapse
+
+Desktop only
+
+Responsive
+
+Highlight active section
+
+Smooth scrolling
+
+Animated indicator
+
+Right Sidebar
+
+Optional.
+
+Related posts
+
+Author info
+
+Popular posts
+
+Series
+
+Tags
+
+Share
+
+Rich Article Content
+
+Support:
+
+MDX
+
+Markdown
+
+Code blocks
+
+Syntax highlighting
+
+Line highlighting
+
+Line numbers
+
+Copy button
+
+Tabs
+
+Callouts
+
+Info
+
+Warning
+
+Success
+
+Danger
+
+Expandable sections
+
+Accordions
+
+Image galleries
+
+Captions
+
+Lightbox
+
+Comparison sliders
+
+Mermaid diagrams
+
+Math equations
+
+Footnotes
+
+References
+
+Embedded videos
+
+Spotify
+
+GitHub
+
+Twitter
+
+Figma embeds
+
+Loom
+
+PDF embeds
+
+Search
+
+Fast global search.
+
+Instant.
+
+Keyboard shortcut.
+
+Command palette.
+
+Filter:
+
+Title
+
+Category
+
+Tag
+
+Author
+
+Content
+
+Series
+
+Recent
+
+Popular
+
+Categories
+
+Unlimited.
+
+Beautiful cards.
+
+Icons.
+
+Descriptions.
+
+Featured categories.
+
+Tags
+
+Cloud
+
+Popularity sizing
+
+Clickable
+
+Related tags
+
+Series
+
+Multi-part articles.
+
+Progress indicator.
+
+Continue series.
+
+Newsletter
+
+Email capture only.
+
+Store subscribers.
+
+CSV export.
+
+Optional integrations.
+
+Admin Dashboard
+
+No login page.
+
+Protect via environment secret.
+
+Admin URL.
+
+Dashboard includes:
+
+Overview
+
+Analytics
+
+Posts
+
+Pages
+
+Categories
+
+Tags
+
+Series
+
+Authors
+
+Media
+
+Subscribers
+
+SEO
+
+Themes
+
+Menus
+
+Settings
+
+Backups
+
+Drafts
+
+Scheduled posts
+
+Archived posts
+
+Trash
+
+Dashboard Features
+
+Create post
+
+Edit
+
+Delete
+
+Duplicate
+
+Preview
+
+Publish
+
+Unpublish
+
+Schedule
+
+Autosave
+
+Version history
+
+Revisions
+
+Slug editor
+
+SEO editor
+
+Open Graph preview
+
+Twitter preview
+
+Canonical URL
+
+Featured image upload
+
+Gallery upload
+
+Video upload
+
+Drag-drop ordering
+
+Bulk actions
+
+Filtering
+
+Search
+
+Pagination
+
+Trash restore
+
+Post Editor
+
+Beautiful editor.
+
+Block editor.
+
+MDX support.
+
+Live preview.
+
+Split screen.
+
+Toolbar.
+
+Slash commands.
+
+Drag blocks.
+
+Image uploads.
+
+Video uploads.
+
+Embeds.
+
+Tables.
+
+Callouts.
+
+Code blocks.
+
+Math.
+
+Mermaid.
+
+Footnotes.
+
+Custom components.
+
+Media Library
+
+Grid
+
+List
+
+Search
+
+Folders
+
+Drag upload
+
+Bulk upload
+
+Rename
+
+Delete
+
+Replace
+
+Compression
+
+Image optimization
+
+Alt text
+
+Captions
+
+Metadata
+
+Theme Customizer
+
+No coding.
+
+Change:
+
+Colors
+
+Accent
+
+Fonts
+
+Radius
+
+Shadows
+
+Glass intensity
+
+Animation speed
+
+Navbar
+
+Footer
+
+Hero
+
+Cards
+
+Buttons
+
+Layouts
+
+Spacing
+
+Container width
+
+Homepage Builder
+
+Enable/disable sections.
+
+Reorder via drag and drop.
+
+SEO
+
+Complete SEO.
+
+Meta
+
+OpenGraph
+
+Twitter
+
+JSON-LD
+
+RSS
+
+Sitemap
+
+Robots
+
+Canonical
+
+Breadcrumbs
+
+Structured data
+
+Automatic OG image generation
+
+Performance
+
+95+ Lighthouse.
+
+Image optimization.
+
+Route prefetching.
+
+Streaming.
+
+Partial prerendering.
+
+Lazy loading.
+
+Edge ready.
+
+Accessibility
+
+WCAG AA.
+
+Keyboard navigation.
+
+Screen readers.
+
+Reduced motion.
+
+Focus rings.
+
+Contrast.
+
+Responsive
+
+Desktop
+
+Laptop
+
+Tablet
+
+Foldables
+
+Mobile
+
+Ultra-wide
+
+Perfect spacing everywhere.
+
+Footer
+
+Elegant.
+
+Categories
+
+Archive
+
+RSS
+
+Newsletter
+
+Social
+
+About
+
+Privacy
+
+Terms
+
+Contact
+
+Motion Details
+
+Hero reveals.
+
+Card hover.
+
+Image zoom.
+
+TOC highlight.
+
+Smooth anchor scrolling.
+
+Animated page transitions.
+
+Gradient movement.
+
+Floating glass.
+
+Cursor interactions.
+
+Scroll velocity effects.
+
+Parallax backgrounds.
+
+Design System
+
+Reusable.
+
+Buttons
+
+Cards
+
+Inputs
+
+Selects
+
+Dialogs
+
+Dropdowns
+
+Tooltips
+
+Badges
+
+Tabs
+
+Accordions
+
+Callouts
+
+Modals
+
+Pagination
+
+Breadcrumbs
+
+Toast
+
+Alerts
+
+Loading states
+
+Empty states
+
+Error pages
+
+Pages
+
+Home
+
+Blog
+
+Article
+
+Category
+
+Tag
+
+Series
+
+Archive
+
+Search
+
+About
+
+Contact
+
+Privacy
+
+Terms
+
+RSS
+
+404
+
+500
+
+Admin
+
+Dashboard
+
+Settings
+
+Database
+
+Posts
+
+Categories
+
+Tags
+
+Authors
+
+Series
+
+Subscribers
+
+Media
+
+Settings
+
+Themes
+
+Menus
+
+Drafts
+
+Revisions
+
+Analytics
+
+Nice Extras
+
+Reading streak
+
+Estimated finish time
+
+Recently viewed
+
+Continue reading
+
+Pinned articles
+
+Featured collections
+
+Trending algorithms
+
+Popular this week
+
+Editor's choice
+
+Pinned notes
+
+Announcement banner
+
+Reading mode
+
+Keyboard shortcuts
+
+Command palette
+
+Reading history
+
+Bookmarks
+
+Share image generation
+
+AI summaries (optional)
+
+AI-generated table of contents (optional)
+
+Deliverables
+
+Generate:
+
+Complete production-ready Next.js project
+Clean architecture
+Feature-based folder structure
+Type-safe codebase
+Prisma schema
+Database migrations
+Seed data
+Admin dashboard
+Reusable design system
+MDX components
+Framer Motion animations
+Fully responsive UI
+SEO implementation
+Theme engine
+Media library
+CMS
+Documentation
+Deployment configuration
+Docker support
+Vercel deployment configuration
+ESLint
+Prettier
+Husky
+CI/CD configuration
+Comprehensive README
+
+The final result should feel like a premium editorial publication with its own distinctive visual identity, emphasizing exceptional readability, fluid motion, elegant glass-inspired UI, and a polished authoring experience, while remaining original rather than replicating any specific existing website.
