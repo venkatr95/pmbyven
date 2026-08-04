@@ -18,7 +18,15 @@ async function main() {
   try {
     // Generate the raw SQL required to create the schema
     execSync("npx prisma migrate diff --from-empty --to-schema prisma/schema.prisma --script > migration.sql", { stdio: "inherit" });
-    const sql = fs.readFileSync("migration.sql", "utf8");
+    let sql = fs.readFileSync("migration.sql", "utf8");
+
+    // The diff is always generated from an empty schema, so on repeat deploys
+    // the tables/indexes already exist in Turso. Make the statements idempotent
+    // so re-applying an unchanged schema is a no-op instead of an error.
+    sql = sql
+      .replace(/CREATE TABLE "/gi, 'CREATE TABLE IF NOT EXISTS "')
+      .replace(/CREATE UNIQUE INDEX "/gi, 'CREATE UNIQUE INDEX IF NOT EXISTS "')
+      .replace(/CREATE INDEX "/gi, 'CREATE INDEX IF NOT EXISTS "');
 
     console.log("Connecting to Turso to apply schema...");
     const client = createClient({ url, authToken });
