@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { db } from "@/lib/db";
+import { CaseStudyCard } from "@/components/collections/case-study-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { caseStudies } from "@/lib/case-studies";
 import { getRobotsMetadata, getSiteConfig } from "@/lib/seo";
 
 const site = getSiteConfig();
@@ -26,6 +28,16 @@ export default async function CollectionsPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <h1 className="font-serif text-3xl sm:text-2xl tracking-tight mb-3">Collections</h1>
         <p className="text-muted-foreground text-lg mb-12">Curated sets of essays worth a deep dive.</p>
+        <section aria-labelledby="case-studies-heading" className="mb-16">
+          <h2 id="case-studies-heading" className="font-serif text-2xl tracking-tight mb-6">
+            Case studies
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudies.map((study) => (
+              <CaseStudyCard key={study.slug} study={study} />
+            ))}
+          </div>
+        </section>
         {collections.length === 0 ? (
           <EmptyState
             title="No collections yet"

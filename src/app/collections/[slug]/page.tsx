@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
+import { CaseStudyView } from "@/components/collections/case-study-view";
 import { PostCard } from "@/components/posts/post-card";
+import { caseStudies, caseStudyPageUrl, getCaseStudy } from "@/lib/case-studies";
 import { getAllCollectionSlugs } from "@/lib/posts";
 import { getRobotsMetadata, getSiteConfig } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -12,13 +14,36 @@ export const dynamicParams = true;
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllCollectionSlugs();
+  const fromDb = await getAllCollectionSlugs();
+  const seen = new Set<string>();
+  return [...caseStudies.map((study) => ({ slug: study.slug })), ...fromDb].filter((item) => {
+    if (seen.has(item.slug)) return false;
+    seen.add(item.slug);
+    return true;
+  });
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const c = await db.collection.findUnique({ where: { slug } });
+  const study = getCaseStudy(slug);
   const site = getSiteConfig();
+  if (study) {
+    const url = caseStudyPageUrl(study.slug);
+    return {
+      title: study.title,
+      description: study.description,
+      robots: getRobotsMetadata(),
+      alternates: { canonical: url },
+      openGraph: {
+        title: study.title,
+        description: study.description,
+        url,
+        siteName: site.siteName,
+        images: [{ url: absoluteUrl(study.coverImage) }],
+      },
+    };
+  }
+  const c = await db.collection.findUnique({ where: { slug } });
   if (!c) return { title: "Collection", robots: { index: false, follow: false } };
   return {
     title: c.title,
@@ -37,6 +62,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CollectionDetailPage({ params }: Props) {
   const { slug } = await params;
+  const study = getCaseStudy(slug);
+  if (study) return <CaseStudyView study={study} />;
+
   const collection = await db.collection.findUnique({ where: { slug } });
   if (!collection) notFound();
 

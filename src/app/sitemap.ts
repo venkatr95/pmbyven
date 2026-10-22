@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { db } from "@/lib/db";
+import { caseStudies, caseStudyPageUrl } from "@/lib/case-studies";
 import { getAllBlogPosts } from "@/lib/posts";
 import { getSiteConfig } from "@/lib/seo";
 
@@ -86,6 +87,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: c.updatedAt,
       changeFrequency: "weekly" as const,
       priority: 0.6,
+    })),
+    ...caseStudies.map((study) => ({
+      url: caseStudyPageUrl(study.slug),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }
