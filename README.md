@@ -98,7 +98,6 @@ For Production, Turso is used as the database. ( see docs/TURSO.md )
 | [docs/TESTING.md](./docs/TESTING.md) | Vitest setup |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | System design |
 | [docs/OPTIONAL.md](./docs/OPTIONAL.md) | AI, integrations, pins |
-| [prd.txt](./prd.txt) | Original product requirements |
 
 ---
 
