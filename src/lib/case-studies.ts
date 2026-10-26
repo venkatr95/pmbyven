@@ -27,6 +27,16 @@ export const caseStudies: CaseStudy[] = [
     demoUrl: "https://pmbyven-moneymind.vercel.app",
     overviewFile: "content/case-studies/moneymind/overview.md",
   },
+  {
+    slug: "rewear",
+    title: "Rewear",
+    description:
+      "Create more outfits from clothes you already own. A private wardrobe prototype. Data stays in this browser.",
+    coverImage: "/case-studies/rewear-cover.png",
+    githubUrl: "https://github.com/venkatr95/case-study-products/tree/main/02-DigitalWarderobe",
+    demoUrl: "https://pmbyven-rewear.vercel.app",
+    overviewFile: "content/case-studies/rewear/overview.md",
+  },
 ];
 
 export function caseStudyPageUrl(slug: string) {
