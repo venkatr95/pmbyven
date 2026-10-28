@@ -37,6 +37,16 @@ export const caseStudies: CaseStudy[] = [
     demoUrl: "https://pmbyven-rewear.vercel.app",
     overviewFile: "content/case-studies/rewear/overview.md",
   },
+  {
+    slug: "accesspath",
+    title: "AccessPath",
+    description:
+      "Find routes that work for your mobility needs, not just the shortest route. A sample walk compared by stairs, curb ramps, and steepness.",
+    coverImage: "/case-studies/accesspath-cover.png",
+    githubUrl: "https://github.com/venkatr95/case-study-products/tree/main/03-NavAccessPath",
+    demoUrl: "https://pmbyven-accesspath.vercel.app",
+    overviewFile: "content/case-studies/accesspath/overview.md",
+  },
 ];
 
 export function caseStudyPageUrl(slug: string) {
