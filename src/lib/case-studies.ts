@@ -47,6 +47,16 @@ export const caseStudies: CaseStudy[] = [
     demoUrl: "https://pmbyven-accesspath.vercel.app",
     overviewFile: "content/case-studies/accesspath/overview.md",
   },
+  {
+    slug: "skillbridge",
+    title: "SkillBridge",
+    description:
+      "Turn the skills you already have into a clear path to your next role. A comparison in words, then up to three actions. Not a hiring prediction.",
+    coverImage: "/case-studies/skillbridge-cover.png",
+    githubUrl: "https://github.com/venkatr95/case-study-products/tree/main/04-CareerNavigator",
+    demoUrl: "https://pmbyven-skillbridge.vercel.app",
+    overviewFile: "content/case-studies/skillbridge/overview.md",
+  },
 ];
 
 export function caseStudyPageUrl(slug: string) {
