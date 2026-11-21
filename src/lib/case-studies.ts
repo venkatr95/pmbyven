@@ -57,6 +57,16 @@ export const caseStudies: CaseStudy[] = [
     demoUrl: "https://pmbyven-skillbridge.vercel.app",
     overviewFile: "content/case-studies/skillbridge/overview.md",
   },
+  {
+    slug: "foodwassistant",
+    title: "FreshLoop",
+    description:
+      "Know what to cook before your groceries go to waste. A pantry prototype that shows which dates you entered are soon. It does not decide whether food is safe.",
+    coverImage: "/case-studies/foodwassistant-cover.png",
+    githubUrl: "https://github.com/venkatr95/case-study-products/tree/main/05-FoodWasteAssistant",
+    demoUrl: "https://pmbyven-foodwassistant.vercel.app",
+    overviewFile: "content/case-studies/foodwassistant/overview.md",
+  },
 ];
 
 export function caseStudyPageUrl(slug: string) {
